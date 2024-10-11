@@ -2,11 +2,14 @@
 """
     make multiplier
 """
+from typing import Callable
 
 
-def make_multiplier(multiplier: float) -> float:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     return the multiplier and square of floate
     """
-    def multiplier(n: float):
-        return n**2, multiplier
+    def multiplier_func(value: float) -> float:
+        return value * multiplier
+
+    return multiplier_func
